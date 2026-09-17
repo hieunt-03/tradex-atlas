@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Quần đảo TradeX: mỗi luồng nghiệp vụ là một hòn đảo 3D tương tác dành cho BA.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'">
+<title>TradeX Atlas · Quần đảo hệ thống</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">🏝️</span><span>TradeX <strong>Atlas</strong><small>HỌC BẰNG CÁCH KHÁM PHÁ</small></span></a>
+  <span class="page-chip"><span class="live-dot"></span>Quần đảo nghiệp vụ TradeX</span>
+  <div class="header-actions">
+    <a class="ghost" href="lessons.html">📖 Bản đọc chi tiết</a>
+    <span class="local-badge">✿ Chạy trên máy</span>
+    <button id="fullscreen">⛶ Toàn màn hình</button>
+  </div>
+</header>
+
+<div class="tour">
+  <aside class="rail" aria-label="Danh sách luồng nghiệp vụ">
+    <div class="rail-head"><p class="eyebrow">LUỒNG NGHIỆP VỤ</p><span>01–09</span></div>
+    <div id="rail-list"></div>
+    <p class="rail-note">Mỗi đảo dựng từ các thành phần có thật trong workspace. Không kết nối backend, không dữ liệu khách hàng.</p>
+  </aside>
+
+  <main class="stage">
+    <nav class="crumb" id="stage-breadcrumb" aria-label="Vị trí hiện tại"></nav>
+    <p class="eyebrow" id="stage-eyebrow"></p>
+    <h1 id="stage-title"></h1>
+    <p class="stage-intro" id="stage-intro"></p>
+
+    <section class="viewport" id="viewport" aria-label="Thế giới đảo 3D">
+      <div class="viewport-top">
+        <div><span class="live-dot"></span><strong>MÔ HÌNH HỆ THỐNG</strong><small id="engine-status">Đang dựng quần đảo…</small></div>
+        <div class="view-controls">
+          <button id="back-world" hidden>↩ Về quần đảo</button>
+          <button id="zoom-out" aria-label="Thu nhỏ">−</button>
+          <button id="zoom-in" aria-label="Phóng to">+</button>
+          <button id="reset" aria-label="Về góc nhìn ban đầu">↺</button>
+        </div>
+      </div>
+      <div id="three-host"></div>
+      <div id="flat-map" class="flat-map"></div>
+      <div class="viewport-foot">
+        <button id="play" class="primary" hidden>▶ Chạy hành trình</button>
+        <small id="stage-hint"></small>
+        <b id="stage-meta"></b>
+      </div>
+    </section>
+
+    <div class="legend" id="legend"></div>
+
+    <section class="config" aria-label="Điều chỉnh hiển thị">
+      <h2>⚙ Điều chỉnh khung cảnh</h2>
+      <div class="config-grid">
+        <label class="switch"><input type="checkbox" id="toggle-labels" checked><span>Nhãn thành phần</span></label>
+        <label class="switch"><input type="checkbox" id="toggle-parcels" checked><span>Gói tin chuyển động</span></label>
+        <label class="slider">Tốc độ gói tin<input type="range" id="speed" min="0.2" max="3" step="0.1" value="1"></label>
+        <label class="slider">Góc nhìn<input type="range" id="tilt" min="12" max="72" step="1" value="48"></label>
+      </div>
+    </section>
+
+    <p class="map-caption">Gói hàng chuyển động chỉ chiều thông tin, không biểu diễn tốc độ thật. Đường mòn trên đảo có thể đã gom Kafka, gateway hoặc kho dữ liệu ở giữa.</p>
+
+    <details class="sources">
+      <summary>📖 Ghi chú phạm vi &amp; cách đọc</summary>
+      <div class="source-grid">
+        <div><h3>Mô hình để học nghiệp vụ</h3><p>Mỗi hòn đảo gom các thành phần tham gia một luồng. Đường mòn biểu diễn quan hệ nghiệp vụ; một số đường đã gom bước trung gian.</p><p>Trình tự các bước là cách diễn giải để học, không phải tên trạng thái chính xác trong cơ sở dữ liệu.</p></div>
+        <div><h3>Bám theo workspace hiện có</h3><p>15 service nội bộ, 2 tác nhân, 4 nhóm đối tác và 5 thành phần hỗ trợ. Kafka, Redis, MongoDB, kho quan hệ và thư viện dùng chung là thành phần hỗ trợ.</p><p>Mã nguồn và tài liệu không xác nhận cấu hình production đang chạy.</p></div>
+        <div><h3>Hoàn toàn trên máy</h3><p>Three.js đóng gói cùng thư mục. Không CDN, không API thật, không dữ liệu khách hàng, không gửi thông tin lên mạng.</p><p>Thiết bị không hỗ trợ WebGL sẽ thấy danh sách 2D với cùng nội dung.</p></div>
+      </div>
+    </details>
+  </main>
+
+  <aside class="notes" aria-label="Ghi chú hành trình">
+    <div class="notes-head">
+      <span class="notes-avatar" aria-hidden="true">🐣</span>
+      <div><p class="eyebrow">GHI CHÚ HÀNH TRÌNH</p><h2>Sổ tay của Pip</h2></div>
+    </div>
+    <div class="note-tabs" id="note-tabs" role="tablist" aria-label="Nội dung ghi chú"></div>
+    <div class="note-body" id="note-body" role="tabpanel" tabindex="0" aria-live="polite"></div>
+  </aside>
+</div>
+
+<footer><span>🏝️ TRADEX ATLAS / NHSV</span><span>Quần đảo 3D · Tương tác · Ngoại tuyến</span></footer>
+<noscript><p class="no-script">Cần bật JavaScript để xem quần đảo 3D. Có hướng dẫn trong README.md đi kèm.</p></noscript>
+<script src="atlas.bundle.js"></script>
+</body></html>
