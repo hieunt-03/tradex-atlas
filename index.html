@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Quần đảo TradeX: mỗi luồng nghiệp vụ là một hòn đảo 3D tương tác dành cho BA.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'">
-<title>TradeX Atlas · Quần đảo hệ thống</title><link rel="stylesheet" href="style.css?v=20260917-3">
+<title>TradeX Atlas · Quần đảo hệ thống</title><link rel="stylesheet" href="style.css?v=20260917-4">
 </head>
 <body>
 <header>
@@ -12,7 +12,7 @@
   <span class="page-chip"><span class="live-dot"></span>Quần đảo nghiệp vụ TradeX</span>
   <div class="header-actions">
     <a class="ghost" href="lessons.html">📖 Bản đọc chi tiết</a>
-    <span class="local-badge">✿ Chạy trên máy</span>
+    <span class="local-badge">✦ Bản trình diễn</span>
     <button id="fullscreen">⛶ Toàn màn hình</button>
   </div>
 </header>
@@ -21,7 +21,7 @@
   <aside class="rail" aria-label="Danh sách luồng nghiệp vụ">
     <div class="rail-head"><p class="eyebrow">LUỒNG NGHIỆP VỤ</p><span>01–09</span></div>
     <div id="rail-list"></div>
-    <p class="rail-note">Mỗi đảo dựng từ các thành phần có thật trong workspace. Không kết nối backend, không dữ liệu khách hàng.</p>
+    <p class="rail-note">Mỗi đảo dựng từ các thành phần của hệ thống. Không kết nối backend, không sử dụng dữ liệu khách hàng.</p>
   </aside>
 
   <main class="stage">
@@ -67,8 +67,8 @@
       <summary>📖 Ghi chú phạm vi &amp; cách đọc</summary>
       <div class="source-grid">
         <div><h3>Mô hình để học nghiệp vụ</h3><p>Mỗi hòn đảo gom các thành phần tham gia một luồng. Đường mòn biểu diễn quan hệ nghiệp vụ; một số đường đã gom bước trung gian.</p><p>Trình tự các bước là cách diễn giải để học, không phải tên trạng thái chính xác trong cơ sở dữ liệu.</p></div>
-        <div><h3>Bám theo workspace hiện có</h3><p>15 service nội bộ, 2 tác nhân, 4 nhóm đối tác và 5 thành phần hỗ trợ. Kafka, Redis, MongoDB, kho quan hệ và thư viện dùng chung là thành phần hỗ trợ.</p><p>Mã nguồn và tài liệu không xác nhận cấu hình production đang chạy.</p></div>
-        <div><h3>Hoàn toàn trên máy</h3><p>Three.js đóng gói cùng thư mục. Không CDN, không API thật, không dữ liệu khách hàng, không gửi thông tin lên mạng.</p><p>Thiết bị không hỗ trợ WebGL sẽ thấy danh sách 2D với cùng nội dung.</p></div>
+        <div><h3>Bám theo kiến trúc hệ thống</h3><p>15 service nội bộ, 2 tác nhân, 4 nhóm đối tác và 5 thành phần hỗ trợ. Kafka, Redis, MongoDB, kho quan hệ và thư viện dùng chung là thành phần hỗ trợ.</p><p>Mô hình dùng để đào tạo, không đại diện cho cấu hình production đang chạy.</p></div>
+        <div><h3>Bản mô phỏng an toàn</h3><p>Trang không gọi API nghiệp vụ thật và không sử dụng dữ liệu khách hàng.</p><p>Thiết bị không hỗ trợ WebGL sẽ thấy danh sách 2D với cùng nội dung.</p></div>
       </div>
     </details>
   </main>
@@ -83,7 +83,7 @@
   </aside>
 </div>
 
-<footer><span>🏝️ TRADEX ATLAS / NHSV</span><span>Quần đảo 3D · Tương tác · Ngoại tuyến</span></footer>
+<footer><span>🏝️ TRADEX ATLAS / NHSV</span><span>Quần đảo 3D · Tương tác · Dành cho BA</span></footer>
 <noscript><p class="no-script">Cần bật JavaScript để xem quần đảo 3D. Có hướng dẫn trong README.md đi kèm.</p></noscript>
-<script src="atlas.bundle.js?v=20260917-3"></script>
+<script src="atlas.bundle.js?v=20260917-4"></script>
 </body></html>
