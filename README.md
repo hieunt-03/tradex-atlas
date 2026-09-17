@@ -10,15 +10,15 @@ Khi sao chép sang máy khác, giữ các file `index.html`, `lessons.html`, `st
 
 - `index.html`: **Quần đảo TradeX**. Một vùng biển 3D chứa 9 hòn đảo, mỗi hòn đảo là một luồng nghiệp vụ. Bấm vào đảo để hạ cánh: mỗi thành phần là một công trình riêng (nhà, tháp, hải đăng, cối xay, cầu gỗ, nhà ga, thùng chứa, đảo mây…), không dùng chung một khối hộp.
 - Mỗi luồng có địa chỉ riêng bằng hash, ví dụ `index.html#trade`, `index.html#market`. Hash là tên thành phần (`index.html#redis`) sẽ mở luồng đầu tiên chứa thành phần đó và chọn sẵn công trình tương ứng.
-- `lessons.html`: bản đọc chi tiết cho cùng 9 luồng (`lessons.html#trade`). Riêng `lessons.html#market` có bản đồ tương tác và bảng tra cứu 13 thành phần dữ liệu của bảng giá. Dùng khi cần đọc nhanh hoặc trên máy không có WebGL.
+- `lessons.html`: bản đọc chi tiết dạng văn bản + sơ đồ service cho cùng 9 luồng (`lessons.html#trade`). Dùng khi cần đọc nhanh hoặc trên máy không có WebGL.
 
 Bố cục trang quần đảo: sidebar danh sách luồng theo 3 chương, khung 3D ở giữa, sổ tay ghi chú bên phải (Hướng dẫn · Khái niệm · Thành phần · Câu hỏi BA) và thanh điều chỉnh khung cảnh bên dưới.
 
 ## Có gì trong mô hình?
 
 - 15 service nội bộ với hồ sơ riêng: trách nhiệm, đầu vào, đầu ra, dữ liệu liên quan, ranh giới, ví dụ, lỗi cần lưu ý, câu hỏi BA và nguồn đối chiếu.
-- 39 khối gồm 15 service, 13 market data component, 2 tác nhân, 4 nhóm đối tác và 5 thành phần hỗ trợ. Nhóm hỗ trợ có Kafka, Redis, MongoDB, dữ liệu quan hệ và thư viện dùng chung.
-- 9 hành trình, 40 bước: tổng quan, đăng nhập, mở tài khoản, bảng giá, lệnh thường, lệnh điều kiện, tài khoản/tiền, Copy Trading, thông báo.
+- 26 khối gồm 15 service, 2 tác nhân, 4 nhóm đối tác và 5 thành phần hỗ trợ. Nhóm hỗ trợ có Kafka, Redis, MongoDB, dữ liệu quan hệ và thư viện dùng chung.
+- 9 hành trình, 38 bước: tổng quan, đăng nhập, mở tài khoản, bảng giá, lệnh thường, lệnh điều kiện, tài khoản/tiền, Copy Trading, thông báo.
 - Giao diện tối màu rừng, dựng hình low-poly. Giữ tên chuẩn Redis, Kafka, MongoDB và tên service; phần giải thích nghiệp vụ bằng tiếng Việt.
 
 ## Tương tác
@@ -40,7 +40,7 @@ Bố cục trang quần đảo: sidebar danh sách luồng theo 3 chương, khun
 1. **Toàn cảnh (3 phút):** phân biệt người sử dụng, TradeX, đối tác và nền tảng.
 2. **Gateway → AAA → configuration (3 phút):** ai xác thực, ai cấp quyền, ai định tuyến?
 3. **eKYC (3 phút):** phân biệt hồ sơ, tài khoản, hợp đồng và tiểu khoản.
-4. **Bảng giá (4 phút):** 13 thành phần dữ liệu — Quote, Bid / Offer, SymbolInfo, product types, các nhánh riêng và Minute bar.
+4. **Bảng giá (4 phút):** collector → hai nhánh realtime/ws; Redis/Mongo và truy vấn. 13 thuật ngữ nghiệp vụ nằm riêng trong tab **Khái niệm**.
 5. **Lệnh thường → lệnh điều kiện (5 phút):** tiếp nhận không đồng nghĩa khớp; điều kiện có vòng đời riêng.
 6. **Copy Trading (3 phút):** danh mục mẫu, tài sản subscriber, tính khối lượng, gửi lệnh và lưu kết quả.
 7. **Vận hành → thông báo (3 phút):** chiến dịch, kênh gửi, trạng thái gửi/đã đọc.
@@ -77,7 +77,7 @@ Không có credential, địa chỉ server nội bộ, dữ liệu cá nhân hay
 - world.js: cảnh Three.js — camera, điều khiển, quần đảo, đảo luồng, đường bay có mũi tên, nhãn nổi và khung hình theo từng bước.
 - atlas.js: điều khiển trang quần đảo — sidebar, sổ tay ghi chú, chú giải, hash routing và 2D fallback.
 - lessons.html / lessons.js: bản đọc chi tiết, sơ đồ SVG theo từng bài, giải thích, checkpoint, nguồn và bài trước/sau.
-- market-flow.js: 13 thành phần dữ liệu, 6 bước giải thích và hai nhánh service pipeline của bài Xem bảng giá.
+- market-flow.js: 13 thuật ngữ nghiệp vụ dùng riêng cho tab **Khái niệm** của luồng Xem bảng giá.
 - style.css: giao diện tối màu rừng, responsive.
 - atlas.bundle.js / lessons.bundle.js: các bản đóng gói dùng trực tiếp khi mở HTML.
 
