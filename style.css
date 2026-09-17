@@ -332,3 +332,45 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
  .pipeline-branches{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ─── Skin Trung thu ────────────────────────────────────────────────────────
+   Bật bằng nút 🏮 trên header; trạng thái nhớ theo trình duyệt.
+   Chỉ đổi màu và vài chi tiết trang trí, không đụng bố cục. */
+.festival-toggle{font-size:13px}
+.festival-toggle[aria-pressed=true]{background:#3a2a12;border-color:#8a6a2e;color:#ffd98a}
+body.midautumn{
+ --bg:#0b1426;--bg-soft:#0e1a2e;--panel:#13223a;--panel-2:#1a2c49;--sea:#111d33;
+ --line:#26405f;--line-soft:#1d3250;--text:#eef2fb;--muted:#a8bad6;--dim:#7b8fae;
+ --accent:#ffc861;--accent-ink:#2a1a06;--mint:#f6c98a;--warm:#f3c46f;
+}
+body.midautumn header{background:#0c1729;border-bottom-color:#22395a}
+/* dây đèn nhỏ chạy dọc mép dưới header */
+body.midautumn header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+ background:repeating-linear-gradient(90deg,#ffc861 0 6px,transparent 6px 15px,#e8543f 15px 21px,transparent 21px 30px)}
+body.midautumn header{position:sticky}
+body.midautumn .brand-icon{background:#3a1f2b;font-size:0}
+body.midautumn .brand-icon::after{content:"🏮";font-size:21px}
+body.midautumn .local-badge,body.midautumn .notes-avatar{background:#3a1f2b;color:#ffd0a3}
+body.midautumn .rail-num,body.midautumn .note-step,body.midautumn .term summary code,
+body.midautumn .term p code,body.midautumn .pin i{background:#1b2c47}
+body.midautumn button:hover:not(:disabled){background:#24395c;border-color:#3a5580}
+body.midautumn .rail-item[aria-current=page],body.midautumn .term[open],
+body.midautumn .lesson-step-tabs button[aria-current=step]{border-color:#8a6a2e}
+body.midautumn .your-turn{background:#1a2742;border-color:#3a5580}
+body.midautumn .switch input,body.midautumn input[type=range]{background:#23375a;border-color:#2c4970}
+body.midautumn .switch input:checked{background:#8a6a2e;border-color:#a8813a}
+body.midautumn button.primary:hover:not(:disabled){background:#ffd98a}
+body.midautumn .live-dot{box-shadow:0 0 0 4px #ffc86122}
+body.midautumn .legend-chip.selected,body.midautumn .pin.selected{box-shadow:0 0 0 3px #ffc86133}
+body.midautumn .pin{background:#10203aef;border-color:#35507a}
+body.midautumn .pin:hover{background:#1c3054;border-color:var(--accent)}
+body.midautumn .pin.selected{background:#2a4373}
+body.midautumn .pin.link{background:#2d2411f2;color:#ffe6bd}
+body.midautumn .viewport-top{background:linear-gradient(#0b1426cc,#0b142600)}
+body.midautumn .viewport-foot{background:linear-gradient(#0b142600,#0b1426dd)}
+body.midautumn .view-controls button{background:#12203acc}
+/* sơ đồ SVG ở trang đọc chi tiết: CSS thắng thuộc tính fill viết thẳng trong thẻ */
+body.midautumn .lesson-node rect{fill:#13223a}
+body.midautumn .lesson-node.active rect{fill:#22365a}
+body.midautumn #lesson-arrow path{fill:var(--accent)}
+body.midautumn .lesson-explanation>span{color:#2f4470}
