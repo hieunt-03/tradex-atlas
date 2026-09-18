@@ -374,3 +374,8 @@ body.midautumn .lesson-node rect{fill:#13223a}
 body.midautumn .lesson-node.active rect{fill:#22365a}
 body.midautumn #lesson-arrow path{fill:var(--accent)}
 body.midautumn .lesson-explanation>span{color:#2f4470}
+/* Công tắc ngôn ngữ VI / EN */
+.lang-switch{display:flex;border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.lang-switch button{border:0;border-radius:0;background:none;font-size:12px;font-weight:700;letter-spacing:.5px;padding:7px 11px;color:var(--dim)}
+.lang-switch button:hover:not([aria-pressed=true]){background:var(--panel);color:var(--text)}
+.lang-switch button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
