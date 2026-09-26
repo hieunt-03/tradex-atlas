@@ -324,47 +324,46 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ─── Skin Trung thu ────────────────────────────────────────────────────────
-   Bật bằng nút 🏮 trên header; trạng thái nhớ theo trình duyệt.
+/* ─── Skin Halloween ────────────────────────────────────────────────────────
+   Bật bằng nút 🎃 trên header; trạng thái nhớ theo trình duyệt.
    Chỉ đổi màu và vài chi tiết trang trí, không đụng bố cục. */
 .festival-toggle{font-size:13px}
-.festival-toggle[aria-pressed=true]{background:#3a2a12;border-color:#8a6a2e;color:#ffd98a}
-body.midautumn{
- --bg:#0b1426;--bg-soft:#0e1a2e;--panel:#13223a;--panel-2:#1a2c49;--sea:#111d33;
- --line:#26405f;--line-soft:#1d3250;--text:#eef2fb;--muted:#a8bad6;--dim:#7b8fae;
- --accent:#ffc861;--accent-ink:#2a1a06;--mint:#f6c98a;--warm:#f3c46f;
+.festival-toggle[aria-pressed=true]{background:#3a1d0e;border-color:#a4561f;color:#ffc27a}
+body.halloween{
+ --bg:#120c1f;--bg-soft:#171027;--panel:#1e1533;--panel-2:#291d45;--sea:#170f2a;
+ --line:#3a2a5c;--line-soft:#2b2047;--text:#f3eefc;--muted:#bfb0dc;--dim:#8e7fb0;
+ --accent:#ff9a3c;--accent-ink:#2a1204;--mint:#b8f27a;--warm:#ffb45c;
 }
-body.midautumn header{background:#0c1729;border-bottom-color:#22395a}
-/* dây đèn nhỏ chạy dọc mép dưới header */
-body.midautumn header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
- background:repeating-linear-gradient(90deg,#ffc861 0 6px,transparent 6px 15px,#e8543f 15px 21px,transparent 21px 30px)}
-body.midautumn header{position:sticky}
-body.midautumn .brand-icon{background:#3a1f2b;font-size:0}
-body.midautumn .brand-icon::after{content:"🏮";font-size:21px}
-body.midautumn .local-badge,body.midautumn .notes-avatar{background:#3a1f2b;color:#ffd0a3}
-body.midautumn .rail-num,body.midautumn .note-step,body.midautumn .term summary code,
-body.midautumn .term p code,body.midautumn .pin i{background:#1b2c47}
-body.midautumn button:hover:not(:disabled){background:#24395c;border-color:#3a5580}
-body.midautumn .rail-item[aria-current=page],body.midautumn .term[open],
-body.midautumn .lesson-step-tabs button[aria-current=step]{border-color:#8a6a2e}
-body.midautumn .your-turn{background:#1a2742;border-color:#3a5580}
-body.midautumn .switch input,body.midautumn input[type=range]{background:#23375a;border-color:#2c4970}
-body.midautumn .switch input:checked{background:#8a6a2e;border-color:#a8813a}
-body.midautumn button.primary:hover:not(:disabled){background:#ffd98a}
-body.midautumn .live-dot{box-shadow:0 0 0 4px #ffc86122}
-body.midautumn .legend-chip.selected,body.midautumn .pin.selected{box-shadow:0 0 0 3px #ffc86133}
-body.midautumn .pin{background:#10203aef;border-color:#35507a}
-body.midautumn .pin:hover{background:#1c3054;border-color:var(--accent)}
-body.midautumn .pin.selected{background:#2a4373}
-body.midautumn .pin.link{background:#2d2411f2;color:#ffe6bd}
-body.midautumn .viewport-top{background:linear-gradient(#0b1426cc,#0b142600)}
-body.midautumn .viewport-foot{background:linear-gradient(#0b142600,#0b1426dd)}
-body.midautumn .view-controls button{background:#12203acc}
+body.halloween header{background:#150e24;border-bottom-color:#33255a;position:sticky}
+/* dây cờ đuôi nheo cam – tím – xanh ma treo dọc mép dưới header */
+body.halloween header::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:9px;pointer-events:none;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='9'%3E%3Cpath d='M0 .5h54' stroke='%236b5a8f'/%3E%3Cpath d='M3 1h12l-6 8z' fill='%23ff9a3c'/%3E%3Cpath d='M21 1h12l-6 8z' fill='%239b6bff'/%3E%3Cpath d='M39 1h12l-6 8z' fill='%23b8f27a'/%3E%3C/svg%3E") repeat-x}
+body.halloween .brand-icon{background:#3a1d0e;font-size:0}
+body.halloween .brand-icon::after{content:"🎃";font-size:21px}
+body.halloween .local-badge,body.halloween .notes-avatar{background:#2d1a45;color:#e4ccff}
+body.halloween .rail-num,body.halloween .note-step,body.halloween .term summary code,
+body.halloween .term p code,body.halloween .pin i{background:#2a1e45}
+body.halloween button:hover:not(:disabled){background:#2e2150;border-color:#4d3a7c}
+body.halloween .rail-item[aria-current=page],body.halloween .term[open],
+body.halloween .lesson-step-tabs button[aria-current=step]{border-color:#a4561f}
+body.halloween .your-turn{background:#231840;border-color:#4d3a7c}
+body.halloween .switch input,body.halloween input[type=range]{background:#2b1f4a;border-color:#3d2d66}
+body.halloween .switch input:checked{background:#a4561f;border-color:#c9702e}
+body.halloween button.primary:hover:not(:disabled){background:#ffb86a}
+body.halloween .live-dot{box-shadow:0 0 0 4px #ff9a3c22}
+body.halloween .legend-chip.selected,body.halloween .pin.selected{box-shadow:0 0 0 3px #ff9a3c33}
+body.halloween .pin{background:#1a1230ef;border-color:#44336e}
+body.halloween .pin:hover{background:#291d48;border-color:var(--accent)}
+body.halloween .pin.selected{background:#3a2766}
+body.halloween .pin.link{background:#2e1a0cf2;color:#ffd9b0}
+body.halloween .viewport-top{background:linear-gradient(#120c1fcc,#120c1f00)}
+body.halloween .viewport-foot{background:linear-gradient(#120c1f00,#120c1fdd)}
+body.halloween .view-controls button{background:#1a1230cc}
 /* sơ đồ SVG ở trang đọc chi tiết: CSS thắng thuộc tính fill viết thẳng trong thẻ */
-body.midautumn .lesson-node rect{fill:#13223a}
-body.midautumn .lesson-node.active rect{fill:#22365a}
-body.midautumn #lesson-arrow path{fill:var(--accent)}
-body.midautumn .lesson-explanation>span{color:#2f4470}
+body.halloween .lesson-node rect{fill:#1e1533}
+body.halloween .lesson-node.active rect{fill:#2e2152}
+body.halloween #lesson-arrow path{fill:var(--accent)}
+body.halloween .lesson-explanation>span{color:#4a3a78}
 /* Công tắc ngôn ngữ VI / EN */
 .lang-switch{display:flex;border:1px solid var(--line);border-radius:11px;overflow:hidden}
 .lang-switch button{border:0;border-radius:0;background:none;font-size:12px;font-weight:700;letter-spacing:.5px;padding:7px 11px;color:var(--dim)}
